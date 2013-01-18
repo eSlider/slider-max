@@ -1,0 +1,67 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/rightArrow" itemID="50f97c5c-000001dd" lastModified="1358527580">
+  <timeline>
+    <DOMTimeline name="rightArrow">
+      <layers>
+        <DOMLayer name="Ellipse 1 Kopie 2" color="#4FFFFF" current="true" isSelected="true" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2">
+                  <matrix>
+                    <Matrix tx="8" ty="115"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Ellipse 1 Kopie" color="#FF4FFF" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie">
+                  <matrix>
+                    <Matrix tx="18" ty="107"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Ellipse 1" color="#FF800A" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1">
+                  <matrix>
+                    <Matrix tx="8" ty="100"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/bg" name="backGround" selected="true">
+                  <transformationPoint>
+                    <Point x="15" y="110"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 1" color="#4FFF4F">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>
