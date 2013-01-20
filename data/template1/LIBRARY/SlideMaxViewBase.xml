@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="SlideMaxViewBase" itemID="50f97d7e-00000202" linkageExportForAS="true" linkageClassName="SlideMaxViewBase" lastModified="1358527870" lastUniqueIdentifier="3">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="SlideMaxViewBase" itemID="50f97d7e-00000202" linkageExportForAS="true" linkageClassName="SlideMaxViewBase" lastModified="1358691991" lastUniqueIdentifier="3">
   <timeline>
     <DOMTimeline name="SlideMaxViewBase">
       <layers>
@@ -6,27 +6,33 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/Ebene 1" name="imagesContainer" centerPoint3DX="270.5" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/imagesContainer" name="imagesContainer" centerPoint3DX="270.5" centerPoint3DY="110">
                   <transformationPoint>
                     <Point x="270.5" y="110"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/rightArrow" name="rightArrow" selected="true" centerPoint3DX="525" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/rightArrow" name="rightArrow" centerPoint3DX="526" centerPoint3DY="110">
                   <matrix>
-                    <Matrix tx="510"/>
+                    <Matrix tx="511"/>
                   </matrix>
                   <transformationPoint>
                     <Point x="15" y="110"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/leftArrow" name="leftArrow" centerPoint3DX="19" centerPoint3DY="110.5">
-                  <matrix>
-                    <Matrix tx="1" ty="1"/>
-                  </matrix>
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/leftArrow" name="leftArrow" selected="true" centerPoint3DX="18" centerPoint3DY="109.5">
                   <transformationPoint>
                     <Point x="18" y="109.5"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+        <DOMLayer name="Layer 2" color="#9933CC">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance libraryItemName="drayton_template_slider.psd Assets/Assets/Ebene 1"/>
               </elements>
             </DOMFrame>
           </frames>

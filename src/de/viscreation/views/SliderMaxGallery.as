@@ -33,58 +33,64 @@
  * @author <Andriy Oblivantsev> eslider@gmail.com
  * 
  */
-package
+package de.viscreation.views
 {
-	import de.viscreation.views.GalleryImage;
-	import de.viscreation.views.SliderMaxGallery;
-	
-	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
-	import flash.events.MouseEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	
-	[SWF(width='540', height='220', frameRate='24', bbackgroundColor="0xFFFFFF")]
-	public class SliderMax extends Sprite
+	public class SliderMaxGallery extends Sprite
 	{
-		private var view:SlideMaxViewBase;
-		private var gallery:SliderMaxGallery;
+		private var xmlLoader:URLLoader;
+		private var images:Array;
+		private var imagesReady:int;
 		
-		public function SliderMax()
+		public static const IMAGES_LOADED:String = "imagesLoaded"; // if all images ready
+		
+		[Event(name="ready", type="flash.events.Event")]
+		public function SliderMaxGallery(imagesXmlUrl:String)
 		{
-			stage.align = "TL";
-			stage.scaleMode = "noScale";
-			
-			addChild(view = new SlideMaxViewBase);
-			view.removeChild(view.getChildAt(0)); // remove standard image
-			gallery = new SliderMaxGallery("images.xml");
-			view.imagesContainer.addChild(gallery);
-			
-			setupArrow(view.leftArrow);
-			setupArrow(view.rightArrow);
+			load(imagesXmlUrl);
+			addEventListener(SliderMaxGallery.IMAGES_LOADED,play);
 		}
 		
-		private function setupArrow(arrow:MovieClip):void
+		protected function play(event:Event = null):void
 		{
-			arrow.buttonMode = true;
-			arrow.mouseChildren = false;
-			arrow.addEventListener(MouseEvent.MOUSE_OVER,onArrowMouseOver);
-			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
+			var image:GalleryImage;
+			for each(image in images){
+				addChild(image);
+			}
 		}
 		
-		protected function onArrowMouseOver(event:MouseEvent):void
+		private function load(xmlUrl:String):void
 		{
-			var arrow:MovieClip = event.target as MovieClip;
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0.7;
+			images = new Array;
+			xmlLoader = new URLLoader();
+			xmlLoader.addEventListener(Event.COMPLETE, onXmlLoadComplete);
+			xmlLoader.load(new URLRequest(xmlUrl));
 		}
-		protected function onArrowMouseOut(event:MouseEvent):void
+		
+		protected function onXmlLoadComplete(e:Event):void
 		{
-			var arrow:MovieClip = event.target as MovieClip;
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0.5;
+			XML.ignoreWhitespace = true;
+			imagesReady = 0
+				
+			var data:XML = new XML(e.target.data);
+			for each ( var imageXml:XML in data.image as XMLList){
+				var src:Object;
+				var image:GalleryImage = new GalleryImage(imageXml);
+				image.addEventListener(GalleryImage.READY,onImageReady);
+				images.push(image);
+			}
+		}
+		
+		protected function onImageReady(event:Event):void
+		{
+			imagesReady++;
+			if(images.length == imagesReady){
+				dispatchEvent(new Event(IMAGES_LOADED));
+			}
 		}
 	}
 }

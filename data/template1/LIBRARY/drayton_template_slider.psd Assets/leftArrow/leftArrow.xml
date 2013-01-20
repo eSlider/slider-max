@@ -1,14 +1,24 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/leftArrow/leftArrow" itemID="50f97c5c-000001ef" lastModified="1358527580">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/leftArrow/leftArrow" itemID="50f97c5c-000001ef" linkageExportForAS="true" linkageClassName="LeftArrow" lastModified="1358691702">
   <timeline>
-    <DOMTimeline name="leftArrow">
+    <DOMTimeline name="leftArrow" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;108&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
-        <DOMLayer name="Ellipse 1 Kopie 3" color="#4FFFFF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Ellipse 1 Kopie 3" color="#4FFFFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/leftArrow/Ellipse 1 Kopie 3">
+                <DOMBitmapInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1">
                   <matrix>
-                    <Matrix tx="16" ty="99"/>
+                    <Matrix a="-1" d="-1" tx="24.95" ty="119.45"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="14.95" ty="112.45"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2">
+                  <matrix>
+                    <Matrix a="-1" d="-1" tx="24.95" ty="104.45"/>
                   </matrix>
                 </DOMBitmapInstance>
               </elements>
@@ -18,37 +28,31 @@
         <DOMLayer name="Ellipse 1 Kopie 3_2" color="#FF4FFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
-              <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/leftArrow/Ellipse 1 Kopie 3_2">
-                  <matrix>
-                    <Matrix tx="6" ty="106"/>
-                  </matrix>
-                </DOMBitmapInstance>
-              </elements>
+              <elements/>
             </DOMFrame>
           </frames>
         </DOMLayer>
         <DOMLayer name="Ellipse 1 Kopie 3_1" color="#FF800A" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
-              <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/leftArrow/Ellipse 1 Kopie 3_1">
-                  <matrix>
-                    <Matrix tx="16" ty="114"/>
-                  </matrix>
-                </DOMBitmapInstance>
-              </elements>
+              <elements/>
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bg" color="#9933CC" autoNamed="false">
+        <DOMLayer name="bg" color="#9933CC" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/bg" name="backGround" selected="true">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/bg" name="backGround" selected="true" centerPoint3DX="18" centerPoint3DY="110">
+                  <matrix>
+                    <Matrix d="1.00456237792969"/>
+                  </matrix>
                   <transformationPoint>
                     <Point x="18" y="109.5"/>
                   </transformationPoint>
+                  <color>
+                    <Color alphaMultiplier="0.5"/>
+                  </color>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>

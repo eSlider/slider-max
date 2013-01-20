@@ -1,7 +1,7 @@
 <flash_profiles>
 <flash_profile version="1.0" name="Default" current="true">
   <PublishFormatProperties enabled="true">
-    <defaultNames>0</defaultNames>
+    <defaultNames>1</defaultNames>
     <flash>0</flash>
     <projectorWin>0</projectorWin>
     <projectorMac>0</projectorMac>
@@ -21,7 +21,7 @@
     <pngDefaultName>1</pngDefaultName>
     <qtDefaultName>1</qtDefaultName>
     <rnwkDefaultName>1</rnwkDefaultName>
-    <swcDefaultName>0</swcDefaultName>
+    <swcDefaultName>1</swcDefaultName>
     <flashFileName>template1.swf</flashFileName>
     <projectorWinFileName>template1.exe</projectorWinFileName>
     <projectorMacFileName>template1.app</projectorMacFileName>
@@ -31,7 +31,7 @@
     <pngFileName>template1.png</pngFileName>
     <qtFileName>template1.mov</qtFileName>
     <rnwkFileName>template1.smil</rnwkFileName>
-    <swcFileName>../assets/template1.swc</swcFileName>
+    <swcFileName>template1.swc</swcFileName>
   </PublishFormatProperties>
   <PublishHtmlProperties enabled="true">
     <VersionDetectionIfAvailable>0</VersionDetectionIfAvailable>
@@ -72,8 +72,8 @@
     <EventFormat>0</EventFormat>
     <EventCompress>7</EventCompress>
     <OverrideSounds>0</OverrideSounds>
-    <Version>15</Version>
-    <ExternalPlayer>FlashPlayer11.2</ExternalPlayer>
+    <Version>9</Version>
+    <ExternalPlayer></ExternalPlayer>
     <ActionScriptVersion>3</ActionScriptVersion>
     <PackageExportFrame>1</PackageExportFrame>
     <PackagePaths></PackagePaths>

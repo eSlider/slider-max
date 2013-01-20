@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/bg" itemID="50f97c5c-000001e0" lastModified="1358527580">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/bg" itemID="50f97c5c-000001e0" lastModified="1358691371">
   <timeline>
     <DOMTimeline name="bg">
       <layers>
@@ -6,7 +6,7 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Assets/bg"/>
+                <DOMBitmapInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/Assets/bg-1.png"/>
               </elements>
             </DOMFrame>
           </frames>

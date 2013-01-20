@@ -33,58 +33,50 @@
  * @author <Andriy Oblivantsev> eslider@gmail.com
  * 
  */
-package
+package de.viscreation.views
 {
-	import de.viscreation.views.GalleryImage;
-	import de.viscreation.views.SliderMaxGallery;
-	
-	import flash.display.DisplayObject;
-	import flash.display.MovieClip;
+	import flash.display.Loader;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
-	import flash.net.URLLoader;
+	import flash.events.ProgressEvent;
 	import flash.net.URLRequest;
+	import flash.net.navigateToURL;
 	
-	[SWF(width='540', height='220', frameRate='24', bbackgroundColor="0xFFFFFF")]
-	public class SliderMax extends Sprite
+	public class GalleryImage extends Sprite
 	{
-		private var view:SlideMaxViewBase;
-		private var gallery:SliderMaxGallery;
+		private var link:String;
+		public var imageLoader:Loader;
 		
-		public function SliderMax()
+		public static const READY:String = "ready"; // if image loaded successfully
+		
+		[Event(name="ready", type="flash.events.Event")]
+		public function GalleryImage(data:XML)
 		{
-			stage.align = "TL";
-			stage.scaleMode = "noScale";
+			var src:String = String(data.@src);
+			link = String(data.@link);
+			load(src);
 			
-			addChild(view = new SlideMaxViewBase);
-			view.removeChild(view.getChildAt(0)); // remove standard image
-			gallery = new SliderMaxGallery("images.xml");
-			view.imagesContainer.addChild(gallery);
-			
-			setupArrow(view.leftArrow);
-			setupArrow(view.rightArrow);
+			buttonMode = true;
+			addEventListener(MouseEvent.CLICK,onClick);
 		}
 		
-		private function setupArrow(arrow:MovieClip):void
+		protected function onClick(event:MouseEvent):void
 		{
-			arrow.buttonMode = true;
-			arrow.mouseChildren = false;
-			arrow.addEventListener(MouseEvent.MOUSE_OVER,onArrowMouseOver);
-			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
+			navigateToURL(new URLRequest(link));
 		}
 		
-		protected function onArrowMouseOver(event:MouseEvent):void
+		private function load(src:String):void
 		{
-			var arrow:MovieClip = event.target as MovieClip;
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0.7;
+			imageLoader = new Loader();
+			imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaderComplete);
+			imageLoader.load(new URLRequest(src));
+			addChild(imageLoader);
 		}
-		protected function onArrowMouseOut(event:MouseEvent):void
+		
+		protected function onLoaderComplete(event:Event):void
 		{
-			var arrow:MovieClip = event.target as MovieClip;
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0.5;
+			dispatchEvent(new Event(READY));
 		}
 	}
 }
