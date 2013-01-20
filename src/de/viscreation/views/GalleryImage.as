@@ -57,10 +57,11 @@ package de.viscreation.views
 		public static const VISIBLE:String = "visible";
 		public static const INVISIBLE:String = "invisible";
 
-		private var quad:Object;
+		private var quad:Object = {width: 45, height: 45};
 		private var drawedLines:int;
 
 		private var linesShouldDrawed:Number;
+		private var srcUrl:String;
 		
 		[Event(name="ready", type="flash.events.Event")]
 		[Event(name="visible", type="flash.events.Event")]
@@ -71,11 +72,12 @@ package de.viscreation.views
 			link = String(data.@link);
 			load(src);
 			
-			//blendMode = BlendMode.LAYER;
-			
-			buttonMode = true;
 			cacheAsBitmap = true;
-			addEventListener(MouseEvent.CLICK,onClick);
+			
+			if(link != ""){
+				buttonMode = true;
+				addEventListener(MouseEvent.CLICK,onClick);
+			}
 		}
 		
 		protected function onClick(event:MouseEvent):void
@@ -85,45 +87,51 @@ package de.viscreation.views
 		
 		private function load(src:String):void
 		{
-			imageMask = new Sprite;
-			//addChild(imageMask);
-			
 			imageLoader = new Loader();
 			imageLoader.cacheAsBitmap = true;
 			imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaderComplete);
 			imageLoader.load(new URLRequest(src));
+			
+			imageMask = new Sprite;
 			imageLoader.mask = imageMask;
 			
 			addChild(imageLoader);
-			
 		}
 		
 		public function show(animate:Boolean = true):void{
-			quad = {width: 45, height: 45};
-			linesShouldDrawed  = Math.round(imageLoader.width/quad.width)+1;
-			drawedLines=0;
-			for (var i:int = 0; i < linesShouldDrawed; i++) 
-			{
-				drawVerticalMaskLine(i)
+			if(animate){
+				linesShouldDrawed = Math.round(imageLoader.width/quad.width)+1;
+				drawedLines = 0;
+				for (var i:int = 0; i < linesShouldDrawed; i++) 
+				{
+					drawVerticalMaskLine(i);
+				}
+			}else{
+				imageLoader.alpha = 0;
+				TweenMax.to(imageLoader,0.5,{alpha:1});
+				imageMask.graphics.beginFill(0xFFFFFF,1);
+				imageMask.graphics.drawRect(0,0,imageLoader.width, imageLoader.height);
+				imageMask.graphics.endFill();
 			}
 		}
 		
 		private function drawVerticalMaskLine(i:Number):void
 		{
 			var tween:Object = {height:0};
+			imageMask.graphics.beginFill(0xFFFFFF,1);
 			TweenMax.to(tween,0.5,{height: imageLoader.height, delay: (i/10), onUpdate:function():void{
-				imageMask.graphics.beginFill(0xFFFFFF,1);
 				imageMask.graphics.drawRect(i*quad.width,0,quad.width, tween.height);
-				imageMask.graphics.endFill();
 			},onComplete:function():void{
 				drawedLines++;
 				if(linesShouldDrawed == drawedLines){
+					imageMask.graphics.endFill();
 					dispatchEvent(new Event(VISIBLE));
 				}
 			}})
 		}
 		
-		public function hide():void{
+		public function hide():void
+		{
 			imageMask.graphics.clear();
 			dispatchEvent(new Event(INVISIBLE));
 		}

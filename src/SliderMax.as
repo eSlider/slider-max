@@ -45,10 +45,11 @@ package
 	import flash.events.MouseEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.system.Security;
 	
 	import gs.TweenLite;
 	
-	[SWF(width='540', height='220', frameRate='60', bbackgroundColor="0x0000000")]
+	[SWF(width='540', height='220', frameRate='60', backgroundColor="0xFFFFFF")]
 	public class SliderMax extends Sprite
 	{
 		private var view:SlideMaxViewBase;
@@ -58,12 +59,24 @@ package
 		{
 			stage.align = "TL";
 			stage.scaleMode = "noScale";
+			Security.allowDomain("*");
+			Security.allowInsecureDomain("*");
+			gallery = new SliderMaxGallery(
+				"images.xml",	// XML URL
+				4				// swap interval
+			);
 			
 			addChild(view = new SlideMaxViewBase);
 			view.removeChild(view.getChildAt(0));
-			
-			gallery = new SliderMaxGallery("images.xml");
 			view.imagesContainer.addChild(gallery);
+			visible = false;
+			
+			gallery.addEventListener(SliderMaxGallery.IMAGES_LOADED, initialize);
+		}
+		
+		protected function initialize(event:Event):void
+		{
+			visible = true;
 			
 			setupArrow(view.leftArrow);
 			setupArrow(view.rightArrow);
@@ -84,12 +97,11 @@ package
 		protected function onClick(event:MouseEvent):void
 		{
 			var arrow:MovieClip = event.target as MovieClip;
-			if(arrow == view.leftArrow){ // view.leftArrow
-				
-			}else{ // view.rightArrow
+			if(arrow == view.leftArrow){ 
+				gallery.showPrev();
+			}else if(arrow == view.rightArrow){ 
 				gallery.showNext();
 			}
-			
 		}
 		
 		protected function onArrowMouseOver(event:MouseEvent):void
@@ -98,6 +110,7 @@ package
 			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
 			TweenLite.to(backGround, 1, {alpha:0.5});
 		}
+		
 		protected function onArrowMouseOut(event:MouseEvent):void
 		{
 			var arrow:MovieClip = event.target as MovieClip;

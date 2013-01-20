@@ -37,6 +37,7 @@ package de.viscreation.views
 {
 	import flash.display.Sprite;
 	import flash.events.Event;
+	import flash.events.TimerEvent;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.utils.Timer;
@@ -53,28 +54,76 @@ package de.viscreation.views
 		private var _swapTime:Number;
 		
 		public static const IMAGES_LOADED:String = "imagesLoaded"; // if all images ready
-
+		private var buttonsEnabled:Boolean;
+		private var timer:Timer;
 		
 		[Event(name="ready", type="flash.events.Event")]
 		public function SliderMaxGallery(imagesXmlUrl:String, swapTime:Number = 2)
 		{
 			load(imagesXmlUrl);
 			addEventListener(SliderMaxGallery.IMAGES_LOADED, play);
-			_swapTime = swapTime;
+			
+			timer = new Timer(swapTime*1000);
+			timer.addEventListener(TimerEvent.TIMER,showNext);
 		}
 		
 		public function play(event:Event = null):void
 		{
-			showNext();
+			currentImage = images[0] as GalleryImage;
+			currentImage.show(false);
+			addChild(currentImage);
 			
+			buttonsEnabled = true;
+			timer.start();
+		}
+		
+		public function stop():void
+		{
+			timer.stop();
+		}
+		
+		public function showPrev(event:Event = null):void
+		{
+			if(!buttonsEnabled)
+				return;
+			
+			buttonsEnabled = false;
+			lastImage = currentImage;
+			currentImage = getPrevImage();
+			addChild(currentImage);
+			currentImage.show();
 		}
 		
 		public function showNext(event:Event = null):void
 		{
+			if(!buttonsEnabled)
+				return;
+			
+			buttonsEnabled = false;
+			lastImage = currentImage;
 			currentImage = getNextImage();
 			addChild(currentImage);
-			currentImage.addEventListener(GalleryImage.VISIBLE,onImageShowed);
 			currentImage.show();
+		}
+		
+		private function getPrevImage():GalleryImage
+		{
+			var foundedImage:GalleryImage;
+			var image:GalleryImage
+			
+			for (var i:int = images.length-1; i >= 0 ; i--) 
+			{
+				image = images[i] as GalleryImage;
+				if(image == currentImage){
+					if(i > 0){
+						foundedImage = images[i-1] as GalleryImage;
+					}else{
+						foundedImage = images[images.length-1] as GalleryImage;
+					}
+					break;
+				}
+			}
+			return foundedImage;
 		}
 		
 		private function getNextImage():GalleryImage
@@ -82,9 +131,8 @@ package de.viscreation.views
 			var image:GalleryImage;
 			var foundedImage:GalleryImage = currentImage;
 			
-			lastImage = currentImage;
-			// set current image and find last one
-			for each(image in images){
+			for each(image in images)
+			{
 				if(foundedImage == null){
 					foundedImage = image;
 					break;
@@ -111,7 +159,7 @@ package de.viscreation.views
 				lastImage = null;
 			}
 			
-			TweenLite.delayedCall(_swapTime,showNext);
+			buttonsEnabled = true;
 		}
 		
 		private function load(xmlUrl:String):void
@@ -128,10 +176,13 @@ package de.viscreation.views
 			imagesReady = 0
 				
 			var data:XML = new XML(e.target.data);
+			var image:GalleryImage;
+			var src:Object;
+			
 			for each ( var imageXml:XML in data.image as XMLList){
-				var src:Object;
-				var image:GalleryImage = new GalleryImage(imageXml);
+				image = new GalleryImage(imageXml);
 				image.addEventListener(GalleryImage.READY,onImageReady);
+				image.addEventListener(GalleryImage.VISIBLE,onImageShowed);
 				images.push(image);
 			}
 		}
