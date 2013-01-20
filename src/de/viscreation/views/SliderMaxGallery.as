@@ -65,51 +65,53 @@ package de.viscreation.views
 		
 		public function play(event:Event = null):void
 		{
-			TweenLite.to({}, _swapTime, {onComplete:function():void{
-				showNext();
-				trace("next");
-			}});
+			showNext();
+			
 		}
 		
 		public function showNext(event:Event = null):void
 		{
 			currentImage = getNextImage();
 			addChild(currentImage);
-			currentImage.show();
 			currentImage.addEventListener(GalleryImage.VISIBLE,onImageShowed);
+			currentImage.show();
 		}
 		
 		private function getNextImage():GalleryImage
 		{
 			var image:GalleryImage;
-			var fondedImage:GalleryImage = currentImage;
+			var foundedImage:GalleryImage = currentImage;
 			
 			lastImage = currentImage;
 			// set current image and find last one
 			for each(image in images){
-				if(fondedImage == null){
-					fondedImage = image;
+				if(foundedImage == null){
+					foundedImage = image;
 					break;
 				}
 				
-				if(fondedImage == image){
-					fondedImage = null;
+				if(foundedImage == image){
+					foundedImage = null;
 				}
 			}
-			fondedImage = image;
 			
-			return fondedImage;
+			if( image == images[images.length-1]){
+				foundedImage = images[0] as GalleryImage;
+			}else{
+				foundedImage = image;
+			}
+			
+			return foundedImage;
 		}
 		
 		protected function onImageShowed(event:Event):void
 		{
-			trace("showed")
 			if(lastImage){
 				lastImage.hide();
 				lastImage = null;
 			}
 			
-			play();
+			TweenLite.delayedCall(_swapTime,showNext);
 		}
 		
 		private function load(xmlUrl:String):void

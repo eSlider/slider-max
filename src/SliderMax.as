@@ -48,7 +48,7 @@ package
 	
 	import gs.TweenLite;
 	
-	[SWF(width='540', height='220', frameRate='24', bbackgroundColor="0xFFFFFF")]
+	[SWF(width='540', height='220', frameRate='60', bbackgroundColor="0x0000000")]
 	public class SliderMax extends Sprite
 	{
 		private var view:SlideMaxViewBase;
@@ -60,7 +60,8 @@ package
 			stage.scaleMode = "noScale";
 			
 			addChild(view = new SlideMaxViewBase);
-			view.removeChild(view.getChildAt(0)); // remove standard image
+			view.removeChild(view.getChildAt(0));
+			
 			gallery = new SliderMaxGallery("images.xml");
 			view.imagesContainer.addChild(gallery);
 			
@@ -74,10 +75,21 @@ package
 			arrow.mouseChildren = false;
 			arrow.addEventListener(MouseEvent.MOUSE_OVER,onArrowMouseOver);
 			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
+			arrow.addEventListener(MouseEvent.CLICK,onClick);
 			
 			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-
 			backGround.alpha = 0;
+		}
+		
+		protected function onClick(event:MouseEvent):void
+		{
+			var arrow:MovieClip = event.target as MovieClip;
+			if(arrow == view.leftArrow){ // view.leftArrow
+				
+			}else{ // view.rightArrow
+				gallery.showNext();
+			}
+			
 		}
 		
 		protected function onArrowMouseOver(event:MouseEvent):void

@@ -44,6 +44,9 @@ package de.viscreation.views
 	import flash.net.URLRequest;
 	import flash.net.navigateToURL;
 	
+	import gs.TweenLite;
+	import gs.TweenMax;
+	
 	public class GalleryImage extends Sprite
 	{
 		private var link:String;
@@ -53,6 +56,11 @@ package de.viscreation.views
 		public static const READY:String = "ready"; // if image loaded successfully
 		public static const VISIBLE:String = "visible";
 		public static const INVISIBLE:String = "invisible";
+
+		private var quad:Object;
+		private var drawedLines:int;
+
+		private var linesShouldDrawed:Number;
 		
 		[Event(name="ready", type="flash.events.Event")]
 		[Event(name="visible", type="flash.events.Event")]
@@ -64,9 +72,9 @@ package de.viscreation.views
 			load(src);
 			
 			//blendMode = BlendMode.LAYER;
-			cacheAsBitmap = true;
-			buttonMode = true;
 			
+			buttonMode = true;
+			cacheAsBitmap = true;
 			addEventListener(MouseEvent.CLICK,onClick);
 		}
 		
@@ -81,6 +89,7 @@ package de.viscreation.views
 			//addChild(imageMask);
 			
 			imageLoader = new Loader();
+			imageLoader.cacheAsBitmap = true;
 			imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaderComplete);
 			imageLoader.load(new URLRequest(src));
 			imageLoader.mask = imageMask;
@@ -89,11 +98,29 @@ package de.viscreation.views
 			
 		}
 		
-		public function show():void{
-			imageMask.graphics.beginFill(0xFFFFFF,1);
-			imageMask.graphics.drawRect(0,0,100,100);
-			imageMask.graphics.endFill();
-			dispatchEvent(new Event(VISIBLE));
+		public function show(animate:Boolean = true):void{
+			quad = {width: 45, height: 45};
+			linesShouldDrawed  = Math.round(imageLoader.width/quad.width)+1;
+			drawedLines=0;
+			for (var i:int = 0; i < linesShouldDrawed; i++) 
+			{
+				drawVerticalMaskLine(i)
+			}
+		}
+		
+		private function drawVerticalMaskLine(i:Number):void
+		{
+			var tween:Object = {height:0};
+			TweenMax.to(tween,0.5,{height: imageLoader.height, delay: (i/10), onUpdate:function():void{
+				imageMask.graphics.beginFill(0xFFFFFF,1);
+				imageMask.graphics.drawRect(i*quad.width,0,quad.width, tween.height);
+				imageMask.graphics.endFill();
+			},onComplete:function():void{
+				drawedLines++;
+				if(linesShouldDrawed == drawedLines){
+					dispatchEvent(new Event(VISIBLE));
+				}
+			}})
 		}
 		
 		public function hide():void{
