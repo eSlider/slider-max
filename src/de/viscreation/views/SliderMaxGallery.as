@@ -39,28 +39,77 @@ package de.viscreation.views
 	import flash.events.Event;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.utils.Timer;
+	
+	import gs.TweenLite;
 	
 	public class SliderMaxGallery extends Sprite
 	{
 		private var xmlLoader:URLLoader;
 		private var images:Array;
 		private var imagesReady:int;
+		private var currentImage:GalleryImage;
+		private var lastImage:GalleryImage;
+		private var _swapTime:Number;
 		
 		public static const IMAGES_LOADED:String = "imagesLoaded"; // if all images ready
+
 		
 		[Event(name="ready", type="flash.events.Event")]
-		public function SliderMaxGallery(imagesXmlUrl:String)
+		public function SliderMaxGallery(imagesXmlUrl:String, swapTime:Number = 2)
 		{
 			load(imagesXmlUrl);
-			addEventListener(SliderMaxGallery.IMAGES_LOADED,play);
+			addEventListener(SliderMaxGallery.IMAGES_LOADED, play);
+			_swapTime = swapTime;
 		}
 		
-		protected function play(event:Event = null):void
+		public function play(event:Event = null):void
+		{
+			TweenLite.to({}, _swapTime, {onComplete:function():void{
+				showNext();
+				trace("next");
+			}});
+		}
+		
+		public function showNext(event:Event = null):void
+		{
+			currentImage = getNextImage();
+			addChild(currentImage);
+			currentImage.show();
+			currentImage.addEventListener(GalleryImage.VISIBLE,onImageShowed);
+		}
+		
+		private function getNextImage():GalleryImage
 		{
 			var image:GalleryImage;
+			var fondedImage:GalleryImage = currentImage;
+			
+			lastImage = currentImage;
+			// set current image and find last one
 			for each(image in images){
-				addChild(image);
+				if(fondedImage == null){
+					fondedImage = image;
+					break;
+				}
+				
+				if(fondedImage == image){
+					fondedImage = null;
+				}
 			}
+			fondedImage = image;
+			
+			return fondedImage;
+		}
+		
+		protected function onImageShowed(event:Event):void
+		{
+			trace("showed")
+			if(lastImage){
+				lastImage.hide();
+				lastImage = null;
+			}
+			
+			play();
 		}
 		
 		private function load(xmlUrl:String):void

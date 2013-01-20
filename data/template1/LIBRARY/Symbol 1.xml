@@ -1,0 +1,27 @@
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="Symbol 1" itemID="50fc0f58-000004ae" lastModified="1358696280">
+  <timeline>
+    <DOMTimeline name="Symbol 1">
+      <layers>
+        <DOMLayer name="Layer 1" color="#4FFF4F" current="true" isSelected="true">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements>
+                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2">
+                  <matrix>
+                    <Matrix ty="15.25"/>
+                  </matrix>
+                </DOMBitmapInstance>
+                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2"/>
+                <DOMBitmapInstance selected="true" libraryItemName="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2">
+                  <matrix>
+                    <Matrix tx="10.95" ty="7.75"/>
+                  </matrix>
+                </DOMBitmapInstance>
+              </elements>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
+      </layers>
+    </DOMTimeline>
+  </timeline>
+</DOMSymbolItem>

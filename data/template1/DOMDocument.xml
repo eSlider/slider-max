@@ -1,4 +1,4 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="540" height="220" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Windows" versionInfo="Saved by Adobe Flash Windows 12.0 build 481" majorVersion="12" buildNumber="481" rulerVisible="true" viewAngle3D="54.1433504005568" nextSceneIdentifier="6" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" autoSaveEnabled="true" autoSaveHasPrompted="true">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="540" height="220" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Windows" versionInfo="Saved by Adobe Flash Windows 12.0 build 481" majorVersion="12" buildNumber="481" rulerVisible="true" viewAngle3D="54.1433504005568" nextSceneIdentifier="7" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" autoSaveEnabled="true" autoSaveHasPrompted="true">
      <folders>
           <DOMFolderItem name="drayton_template_slider.psd Assets" itemID="50f97c5c-000001d4" isExpanded="true"/>
           <DOMFolderItem name="drayton_template_slider.psd Assets/Assets" itemID="50f97c5c-000001d5" isExpanded="true"/>
@@ -21,10 +21,12 @@
      <symbols>
           <Include href="drayton_template_slider.psd Assets/imagesContainer.xml" itemID="50fbfad2-000001e8" lastModified="1358691311"/>
           <Include href="drayton_template_slider.psd Assets/leftArrow/bg.xml" loadImmediate="false" itemID="50f97c5c-000001f2" lastModified="1358691345"/>
-          <Include href="drayton_template_slider.psd Assets/leftArrow/leftArrow.xml" itemID="50f97c5c-000001ef" lastModified="1358691702"/>
+          <Include href="drayton_template_slider.psd Assets/leftArrow/leftArrow.xml" itemID="50f97c5c-000001ef" lastModified="1358696306"/>
           <Include href="drayton_template_slider.psd Assets/rightArrow/bg.xml" loadImmediate="false" itemID="50f97c5c-000001e0" lastModified="1358691371"/>
-          <Include href="drayton_template_slider.psd Assets/rightArrow/rightArrow.xml" itemID="50f97c5c-000001dd" lastModified="1358691780"/>
-          <Include href="SlideMaxViewBase.xml" itemID="50f97d7e-00000202" lastModified="1358691991"/>
+          <Include href="drayton_template_slider.psd Assets/rightArrow/rightArrow.xml" itemID="50f97c5c-000001dd" lastModified="1358696290"/>
+          <Include href="SlideMaxViewBase.xml" itemID="50f97d7e-00000202" lastModified="1358696265"/>
+          <Include href="Symbol 1.xml" loadImmediate="false" itemID="50fc0f58-000004ae" lastModified="1358696280"/>
+          <Include href="Symbol 2.xml" loadImmediate="false" itemID="50fc0f6d-000004b5" lastModified="1358696302"/>
      </symbols>
      <timelines>
           <DOMTimeline name="Scene 1">
@@ -68,6 +70,10 @@
      </timelines>
      <PrinterSettings/>
      <publishHistory>
+          <PublishItem publishSize="29458" publishTime="1358696308"/>
+          <PublishItem publishSize="29462" publishTime="1358696260"/>
+          <PublishItem publishSize="30814" publishTime="1358696209"/>
+          <PublishItem publishSize="29457" publishTime="1358696197"/>
           <PublishItem publishSize="30943" publishTime="1358691791"/>
           <PublishItem publishSize="3307" publishTime="1358691519"/>
           <PublishItem publishSize="2093" publishTime="1358691489"/>

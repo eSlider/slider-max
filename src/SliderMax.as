@@ -46,6 +46,8 @@ package
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	
+	import gs.TweenLite;
+	
 	[SWF(width='540', height='220', frameRate='24', bbackgroundColor="0xFFFFFF")]
 	public class SliderMax extends Sprite
 	{
@@ -72,19 +74,23 @@ package
 			arrow.mouseChildren = false;
 			arrow.addEventListener(MouseEvent.MOUSE_OVER,onArrowMouseOver);
 			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
+			
+			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
+
+			backGround.alpha = 0;
 		}
 		
 		protected function onArrowMouseOver(event:MouseEvent):void
 		{
 			var arrow:MovieClip = event.target as MovieClip;
 			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0.7;
+			TweenLite.to(backGround, 1, {alpha:0.5});
 		}
 		protected function onArrowMouseOut(event:MouseEvent):void
 		{
 			var arrow:MovieClip = event.target as MovieClip;
 			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0.5;
+			TweenLite.to(backGround, 1, {alpha:0});
 		}
 	}
 }

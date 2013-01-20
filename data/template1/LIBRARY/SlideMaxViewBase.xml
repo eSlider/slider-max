@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="SlideMaxViewBase" itemID="50f97d7e-00000202" linkageExportForAS="true" linkageClassName="SlideMaxViewBase" lastModified="1358691991" lastUniqueIdentifier="3">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="SlideMaxViewBase" itemID="50f97d7e-00000202" linkageExportForAS="true" linkageClassName="SlideMaxViewBase" lastModified="1358696265" lastUniqueIdentifier="3">
   <timeline>
     <DOMTimeline name="SlideMaxViewBase">
       <layers>
@@ -16,7 +16,7 @@
                     <Matrix tx="511"/>
                   </matrix>
                   <transformationPoint>
-                    <Point x="15" y="110"/>
+                    <Point/>
                   </transformationPoint>
                 </DOMSymbolInstance>
                 <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/leftArrow" name="leftArrow" selected="true" centerPoint3DX="18" centerPoint3DY="109.5">

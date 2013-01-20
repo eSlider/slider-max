@@ -35,6 +35,7 @@
  */
 package de.viscreation.views
 {
+	import flash.display.BlendMode;
 	import flash.display.Loader;
 	import flash.display.Sprite;
 	import flash.events.Event;
@@ -47,17 +48,25 @@ package de.viscreation.views
 	{
 		private var link:String;
 		public var imageLoader:Loader;
+		public var imageMask:Sprite;
 		
 		public static const READY:String = "ready"; // if image loaded successfully
+		public static const VISIBLE:String = "visible";
+		public static const INVISIBLE:String = "invisible";
 		
 		[Event(name="ready", type="flash.events.Event")]
+		[Event(name="visible", type="flash.events.Event")]
+		[Event(name="invisible", type="flash.events.Event")]
 		public function GalleryImage(data:XML)
 		{
 			var src:String = String(data.@src);
 			link = String(data.@link);
 			load(src);
 			
+			//blendMode = BlendMode.LAYER;
+			cacheAsBitmap = true;
 			buttonMode = true;
+			
 			addEventListener(MouseEvent.CLICK,onClick);
 		}
 		
@@ -68,10 +77,28 @@ package de.viscreation.views
 		
 		private function load(src:String):void
 		{
+			imageMask = new Sprite;
+			//addChild(imageMask);
+			
 			imageLoader = new Loader();
 			imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaderComplete);
 			imageLoader.load(new URLRequest(src));
+			imageLoader.mask = imageMask;
+			
 			addChild(imageLoader);
+			
+		}
+		
+		public function show():void{
+			imageMask.graphics.beginFill(0xFFFFFF,1);
+			imageMask.graphics.drawRect(0,0,100,100);
+			imageMask.graphics.endFill();
+			dispatchEvent(new Event(VISIBLE));
+		}
+		
+		public function hide():void{
+			imageMask.graphics.clear();
+			dispatchEvent(new Event(INVISIBLE));
 		}
 		
 		protected function onLoaderComplete(event:Event):void
