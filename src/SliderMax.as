@@ -63,7 +63,7 @@ package
 			Security.allowInsecureDomain("*");
 			gallery = new SliderMaxGallery(
 				"images.xml",	// XML URL
-				4				// swap interval
+				5				// swap interval
 			);
 			
 			addChild(view = new SlideMaxViewBase);

@@ -89,7 +89,9 @@ package de.viscreation.views
 			
 			buttonsEnabled = false;
 			lastImage = currentImage;
+			lastImage.mouseEnabled = false;
 			currentImage = getPrevImage();
+			currentImage.mouseEnabled = true;
 			addChild(currentImage);
 			currentImage.show();
 		}
@@ -101,7 +103,9 @@ package de.viscreation.views
 			
 			buttonsEnabled = false;
 			lastImage = currentImage;
+			lastImage.mouseEnabled = false;
 			currentImage = getNextImage();
+			currentImage.mouseEnabled = false;
 			addChild(currentImage);
 			currentImage.show();
 		}
@@ -128,27 +132,18 @@ package de.viscreation.views
 		
 		private function getNextImage():GalleryImage
 		{
-			var image:GalleryImage;
 			var foundedImage:GalleryImage = currentImage;
-			
-			for each(image in images)
+			for (var i:int = 0; i < images.length ; i++) 
 			{
-				if(foundedImage == null){
-					foundedImage = image;
+				if(images[i] as GalleryImage == currentImage){
+					if(i == images.length-1){
+						foundedImage = images[0] as GalleryImage;
+					}else{
+						foundedImage = images[i+1] as GalleryImage;
+					}
 					break;
 				}
-				
-				if(foundedImage == image){
-					foundedImage = null;
-				}
 			}
-			
-			if( image == images[images.length-1]){
-				foundedImage = images[0] as GalleryImage;
-			}else{
-				foundedImage = image;
-			}
-			
 			return foundedImage;
 		}
 		

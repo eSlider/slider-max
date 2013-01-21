@@ -70,6 +70,7 @@ package de.viscreation.views
 		{
 			var src:String = String(data.@src);
 			link = String(data.@link);
+			trace(link);
 			load(src);
 			
 			cacheAsBitmap = true;
