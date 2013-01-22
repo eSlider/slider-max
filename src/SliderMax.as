@@ -54,13 +54,15 @@ package
 	{
 		private var view:SlideMaxViewBase;
 		private var gallery:SliderMaxGallery;
-		
+		// test
 		public function SliderMax()
 		{
 			stage.align = "TL";
 			stage.scaleMode = "noScale";
 			Security.allowDomain("*");
 			Security.allowInsecureDomain("*");
+			//Security.sandboxType  = Security.LOCAL_WITH_NETWORK
+			
 			gallery = new SliderMaxGallery(
 				"images.xml",	// XML URL
 				5				// swap interval
