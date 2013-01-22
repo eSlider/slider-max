@@ -89,9 +89,9 @@ package de.viscreation.views
 			
 			buttonsEnabled = false;
 			lastImage = currentImage;
-			lastImage.mouseEnabled = false;
+			lastImage.enable();
 			currentImage = getPrevImage();
-			currentImage.mouseEnabled = true;
+			currentImage.disable();
 			addChild(currentImage);
 			currentImage.show();
 		}
@@ -103,9 +103,9 @@ package de.viscreation.views
 			
 			buttonsEnabled = false;
 			lastImage = currentImage;
-			lastImage.mouseEnabled = false;
+			lastImage.enable();
 			currentImage = getNextImage();
-			currentImage.mouseEnabled = false;
+			currentImage.disable();
 			addChild(currentImage);
 			currentImage.show();
 		}

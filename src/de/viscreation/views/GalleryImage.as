@@ -46,6 +46,7 @@ package de.viscreation.views
 	
 	import gs.TweenLite;
 	import gs.TweenMax;
+	import flash.system.LoaderContext;
 	
 	public class GalleryImage extends Sprite
 	{
@@ -80,6 +81,23 @@ package de.viscreation.views
 			}
 		}
 		
+		public function enable():void{
+			if(link != ""){
+				buttonMode = true;
+				mouseChildren = false;
+			}else{
+				buttonMode = false;
+				mouseChildren = true;
+			}
+			mouseEnabled = true;
+		}
+		
+		public function disable():void{
+			mouseChildren = false;
+			mouseEnabled = false;
+			buttonMode = false;
+		}
+		
 		protected function onClick(event:MouseEvent):void
 		{
 			navigateToURL(new URLRequest(link));
@@ -87,6 +105,9 @@ package de.viscreation.views
 		
 		private function load(src:String):void
 		{
+			var context:LoaderContext = new LoaderContext();
+			var SecurityDomain:Object;
+
 			imageLoader = new Loader();
 			imageLoader.cacheAsBitmap = true;
 			imageLoader.contentLoaderInfo.addEventListener(Event.COMPLETE, onLoaderComplete);
