@@ -72,6 +72,20 @@ package
 			visible = false;
 			
 			gallery.addEventListener(SliderMaxGallery.IMAGES_LOADED, initialize);
+			stage.addEventListener(Event.MOUSE_LEAVE, handleMouse);
+			stage.addEventListener(MouseEvent.MOUSE_OVER, handleMouse);
+		}
+		
+		protected function handleMouse(event:Event):void
+		{
+			switch(event.type){
+				case MouseEvent.MOUSE_OVER:
+					gallery.stop();
+					break;
+				case Event.MOUSE_LEAVE:
+					gallery.start();
+					break;
+			}
 		}
 		
 		protected function initialize(event:Event):void

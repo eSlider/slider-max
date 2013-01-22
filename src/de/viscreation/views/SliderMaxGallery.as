@@ -77,6 +77,12 @@ package de.viscreation.views
 			timer.start();
 		}
 		
+		public function start():void
+		{	
+			timer.reset();
+			timer.start();
+		}
+		
 		public function stop():void
 		{
 			timer.stop();
@@ -89,9 +95,9 @@ package de.viscreation.views
 			
 			buttonsEnabled = false;
 			lastImage = currentImage;
-			lastImage.enable();
+			lastImage.disable();
 			currentImage = getPrevImage();
-			currentImage.disable();
+			currentImage.enable();
 			addChild(currentImage);
 			currentImage.show();
 		}
@@ -103,9 +109,9 @@ package de.viscreation.views
 			
 			buttonsEnabled = false;
 			lastImage = currentImage;
-			lastImage.enable();
+			lastImage.disable();
 			currentImage = getNextImage();
-			currentImage.disable();
+			currentImage.enable();
 			addChild(currentImage);
 			currentImage.show();
 		}
