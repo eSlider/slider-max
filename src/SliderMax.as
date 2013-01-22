@@ -35,6 +35,7 @@
  */
 package
 {
+	import de.viscreation.VisApp;
 	import de.viscreation.views.GalleryImage;
 	import de.viscreation.views.SliderMaxGallery;
 	
@@ -43,6 +44,7 @@ package
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
+	import flash.external.ExternalInterface;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.system.Security;
@@ -76,14 +78,17 @@ package
 			gallery.addEventListener(SliderMaxGallery.IMAGES_LOADED, initialize);
 			stage.addEventListener(Event.MOUSE_LEAVE, handleMouse);
 			stage.addEventListener(MouseEvent.MOUSE_OVER, handleMouse);
+			stage.addEventListener(MouseEvent.MOUSE_OUT, handleMouse);
 		}
 		
 		protected function handleMouse(event:Event):void
 		{
+			VisApp.debug(event.type);
 			switch(event.type){
 				case MouseEvent.MOUSE_OVER:
 					gallery.stop();
 					break;
+				case MouseEvent.MOUSE_OUT:
 				case Event.MOUSE_LEAVE:
 					gallery.start();
 					break;

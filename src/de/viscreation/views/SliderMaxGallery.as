@@ -35,6 +35,8 @@
  */
 package de.viscreation.views
 {
+	import de.viscreation.VisApp;
+	
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.TimerEvent;
@@ -81,11 +83,13 @@ package de.viscreation.views
 		{	
 			timer.reset();
 			timer.start();
+			VisApp.debug("start");
 		}
 		
 		public function stop():void
 		{
 			timer.stop();
+			VisApp.debug("stop");
 		}
 		
 		public function showPrev(event:Event = null):void
