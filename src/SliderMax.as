@@ -51,7 +51,7 @@ package
 	
 	import gs.TweenLite;
 	
-	[SWF(width='540', height='220', frameRate='60', backgroundColor="0xFFFFFF")]
+	[SWF(width='542', height='220', frameRate='60', backgroundColor="0xFFFFFF")]
 	public class SliderMax extends Sprite
 	{
 		private var view:SlideMaxViewBase;

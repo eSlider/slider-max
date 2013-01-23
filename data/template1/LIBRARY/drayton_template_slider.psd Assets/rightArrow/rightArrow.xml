@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/rightArrow" itemID="50f97c5c-000001dd" linkageExportForAS="true" linkageClassName="RightArrow" lastModified="1358696290">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/rightArrow" itemID="50f97c5c-000001dd" linkageExportForAS="true" linkageClassName="RightArrow" lastModified="1358967464">
   <timeline>
     <DOMTimeline name="rightArrow" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;110&lt;/guideline&gt;&lt;guideline direction="v"&gt;5&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
@@ -9,18 +9,15 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="Ellipse 1 Kopie" color="#FF4FFF" current="true" isSelected="true" autoNamed="false">
+        <DOMLayer name="Ellipse 1 Kopie" color="#FF4FFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="Symbol 1" blendMode="multiply" centerPoint3DX="17.45" centerPoint3DY="110.6">
+                <DOMBitmapInstance libraryItemName="Bitmap 10.png">
                   <matrix>
-                    <Matrix tx="9" ty="100"/>
+                    <Matrix a="-1" d="-1" tx="13" ty="115"/>
                   </matrix>
-                  <transformationPoint>
-                    <Point x="8.45" y="10.6"/>
-                  </transformationPoint>
-                </DOMSymbolInstance>
+                </DOMBitmapInstance>
               </elements>
             </DOMFrame>
           </frames>
@@ -32,13 +29,13 @@
             </DOMFrame>
           </frames>
         </DOMLayer>
-        <DOMLayer name="bg" color="#9933CC" locked="true" autoNamed="false">
+        <DOMLayer name="bg" color="#9933CC" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/bg" name="backGround" centerPoint3DX="15" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/bg" name="backGround" centerPoint3DX="7.5" centerPoint3DY="110">
                   <matrix>
-                    <Matrix a="0.999984741210938"/>
+                    <Matrix a="0.5"/>
                   </matrix>
                   <transformationPoint>
                     <Point x="15" y="110"/>

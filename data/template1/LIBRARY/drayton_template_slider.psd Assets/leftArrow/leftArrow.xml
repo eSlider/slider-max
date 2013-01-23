@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/leftArrow/leftArrow" itemID="50f97c5c-000001ef" linkageExportForAS="true" linkageClassName="LeftArrow" lastModified="1358696306">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/leftArrow/leftArrow" itemID="50f97c5c-000001ef" linkageExportForAS="true" linkageClassName="LeftArrow" lastModified="1358967541">
   <timeline>
     <DOMTimeline name="leftArrow" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;108&lt;/guideline&gt;&lt;guideline direction="v"&gt;29&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
@@ -6,14 +6,11 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="Symbol 2" blendMode="multiply" centerPoint3DX="14.25" centerPoint3DY="109.05">
+                <DOMBitmapInstance libraryItemName="Bitmap 10.png">
                   <matrix>
-                    <Matrix tx="5.8" ty="98.45"/>
+                    <Matrix tx="2" ty="103"/>
                   </matrix>
-                  <transformationPoint>
-                    <Point x="8.45" y="10.6"/>
-                  </transformationPoint>
-                </DOMSymbolInstance>
+                </DOMBitmapInstance>
               </elements>
             </DOMFrame>
           </frames>
@@ -36,9 +33,9 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/bg" name="backGround" centerPoint3DX="14.5" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/bg" name="backGround" centerPoint3DX="7.5" centerPoint3DY="110">
                   <matrix>
-                    <Matrix a="0.833328247070313" d="1.00456237792969" tx="-0.5"/>
+                    <Matrix a="0.416671752929688" d="1.00456237792969"/>
                   </matrix>
                   <transformationPoint>
                     <Point x="18" y="109.5"/>
