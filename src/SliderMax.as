@@ -67,7 +67,7 @@ package
 			
 			gallery = new SliderMaxGallery(
 				"images.xml",	// XML URL
-				5				// swap interval
+				4				// swap interval
 			);
 			
 			addChild(view = new SlideMaxViewBase);
