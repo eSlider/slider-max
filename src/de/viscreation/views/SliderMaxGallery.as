@@ -45,6 +45,7 @@ package de.viscreation.views
 	import flash.utils.Timer;
 	
 	import gs.TweenLite;
+	import gs.TweenMax;
 	
 	public class SliderMaxGallery extends Sprite
 	{
@@ -58,23 +59,27 @@ package de.viscreation.views
 		public static const IMAGES_LOADED:String = "imagesLoaded"; // if all images ready
 		private var buttonsEnabled:Boolean;
 		private var timer:Timer;
+		private var animateTime:Number = 1;
+
 		
 		[Event(name="ready", type="flash.events.Event")]
 		public function SliderMaxGallery(imagesXmlUrl:String, swapTime:Number = 2)
 		{
+			_swapTime = swapTime;
 			load(imagesXmlUrl);
 			addEventListener(SliderMaxGallery.IMAGES_LOADED, play);
-			
-			timer = new Timer(swapTime*1000);
-			timer.addEventListener(TimerEvent.TIMER,showNext);
 		}
 		
 		public function play(event:Event = null):void
 		{
-			currentImage = images[0] as GalleryImage;
-			currentImage.show(false);
-			addChild(currentImage);
+			if(!timer){
+				timer = new Timer(_swapTime*1000);
+				timer.addEventListener(TimerEvent.TIMER,showNext);
+			}
 			
+			currentImage = images[0] as GalleryImage;
+			
+			addChild(currentImage);
 			buttonsEnabled = true;
 			timer.start();
 		}
@@ -97,13 +102,17 @@ package de.viscreation.views
 			if(!buttonsEnabled)
 				return;
 			
+			timer.stop();
 			buttonsEnabled = false;
 			lastImage = currentImage;
-			lastImage.disable();
 			currentImage = getPrevImage();
-			currentImage.enable();
+			currentImage.x = -currentImage.width;
 			addChild(currentImage);
-			currentImage.show();
+			TweenMax.to(lastImage, animateTime, {x:lastImage.width,onComplete:function():void{
+				timer.start();
+				buttonsEnabled = true;
+			}});
+			TweenMax.to(currentImage, animateTime, {x:0});
 		}
 		
 		public function showNext(event:Event = null):void
@@ -111,13 +120,18 @@ package de.viscreation.views
 			if(!buttonsEnabled)
 				return;
 			
+			timer.stop();
 			buttonsEnabled = false;
 			lastImage = currentImage;
-			lastImage.disable();
 			currentImage = getNextImage();
-			currentImage.enable();
+			currentImage.x = stage.stageWidth;
+			
 			addChild(currentImage);
-			currentImage.show();
+			TweenMax.to(lastImage, animateTime, {x:-stage.stageWidth,onComplete:function():void{
+				timer.start();
+				buttonsEnabled = true;
+			}});
+			TweenMax.to(currentImage, animateTime, {x:0});
 		}
 		
 		private function getPrevImage():GalleryImage
@@ -189,6 +203,7 @@ package de.viscreation.views
 				image.addEventListener(GalleryImage.READY,onImageReady);
 				image.addEventListener(GalleryImage.VISIBLE,onImageShowed);
 				images.push(image);
+				addChild(image);
 			}
 		}
 		

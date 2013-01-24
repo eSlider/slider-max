@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="SlideMaxViewBase" itemID="50f97d7e-00000202" linkageExportForAS="true" linkageClassName="SlideMaxViewBase" lastModified="1358967496" lastUniqueIdentifier="3">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="SlideMaxViewBase" itemID="50f97d7e-00000202" linkageExportForAS="true" linkageClassName="SlideMaxViewBase" lastModified="1358967496" lastUniqueIdentifier="5">
   <timeline>
     <DOMTimeline name="SlideMaxViewBase">
       <layers>
@@ -11,7 +11,7 @@
                     <Point x="270.5" y="110"/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/rightArrow" name="rightArrow" centerPoint3DX="542" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/rightArrow" name="rightArrow" selected="true" centerPoint3DX="542" centerPoint3DY="110">
                   <matrix>
                     <Matrix tx="527"/>
                   </matrix>
@@ -19,7 +19,7 @@
                     <Point/>
                   </transformationPoint>
                 </DOMSymbolInstance>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/leftArrow" name="leftArrow" selected="true" centerPoint3DX="18" centerPoint3DY="109.5">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/leftArrow" name="leftArrow" centerPoint3DX="18" centerPoint3DY="109.5">
                   <transformationPoint>
                     <Point x="18" y="109.5"/>
                   </transformationPoint>

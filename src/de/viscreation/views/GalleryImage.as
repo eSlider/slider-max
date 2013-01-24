@@ -114,12 +114,12 @@ package de.viscreation.views
 			imageLoader.load(new URLRequest(src));
 			
 			imageMask = new Sprite;
-			imageLoader.mask = imageMask;
+			//imageLoader.mask = imageMask;
 			
 			addChild(imageLoader);
 		}
 		
-		public function show(animate:Boolean = true):void{
+		public function show(animate:Boolean = false):void{
 			if(animate){
 				linesShouldDrawed = Math.round(imageLoader.width/quad.width)+1;
 				drawedLines = 0;
@@ -133,6 +133,7 @@ package de.viscreation.views
 				imageMask.graphics.beginFill(0xFFFFFF,1);
 				imageMask.graphics.drawRect(0,0,imageLoader.width, imageLoader.height);
 				imageMask.graphics.endFill();
+				dispatchEvent(new Event(VISIBLE));
 			}
 		}
 		

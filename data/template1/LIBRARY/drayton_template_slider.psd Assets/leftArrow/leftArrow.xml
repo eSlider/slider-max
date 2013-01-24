@@ -1,16 +1,26 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/leftArrow/leftArrow" itemID="50f97c5c-000001ef" linkageExportForAS="true" linkageClassName="LeftArrow" lastModified="1358967541">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/leftArrow/leftArrow" itemID="50f97c5c-000001ef" linkageExportForAS="true" linkageClassName="LeftArrow" lastModified="1359059835" lastUniqueIdentifier="1">
   <timeline>
     <DOMTimeline name="leftArrow" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;108&lt;/guideline&gt;&lt;guideline direction="v"&gt;29&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
+        <DOMLayer name="Ebene 4 Kopie" color="#9933CC" autoNamed="false">
+          <frames>
+            <DOMFrame index="0" keyMode="9728">
+              <elements/>
+            </DOMFrame>
+          </frames>
+        </DOMLayer>
         <DOMLayer name="Ellipse 1 Kopie 3" color="#4FFFFF" current="true" isSelected="true" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMBitmapInstance libraryItemName="Bitmap 10.png">
+                <DOMSymbolInstance libraryItemName="Ebene 4 Kopie" name="arrow" centerPoint3DX="11.5" centerPoint3DY="110.6">
                   <matrix>
-                    <Matrix tx="2" ty="103"/>
+                    <Matrix a="-1" d="-1" tx="19" ty="123"/>
                   </matrix>
-                </DOMBitmapInstance>
+                  <transformationPoint>
+                    <Point x="7.5" y="12.5"/>
+                  </transformationPoint>
+                </DOMSymbolInstance>
               </elements>
             </DOMFrame>
           </frames>
@@ -33,15 +43,15 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/bg" name="backGround" centerPoint3DX="7.5" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/leftArrow/bg" name="backGround" centerPoint3DX="7.6" centerPoint3DY="110">
                   <matrix>
-                    <Matrix a="0.416671752929688" d="1.00456237792969"/>
+                    <Matrix a="0.555557250976563" d="1.00456237792969"/>
                   </matrix>
                   <transformationPoint>
-                    <Point x="18" y="109.5"/>
+                    <Point/>
                   </transformationPoint>
                   <color>
-                    <Color alphaMultiplier="0.5"/>
+                    <Color alphaMultiplier="0"/>
                   </color>
                 </DOMSymbolInstance>
               </elements>

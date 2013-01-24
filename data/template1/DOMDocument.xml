@@ -1,4 +1,4 @@
-<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="542" height="220" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Windows" versionInfo="Saved by Adobe Flash Windows 12.0 build 481" majorVersion="12" buildNumber="481" rulerVisible="true" viewAngle3D="54.3152087073611" nextSceneIdentifier="7" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" autoSaveEnabled="true" autoSaveHasPrompted="true">
+<DOMDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" backgroundColor="#CCCCCC" width="542" height="220" currentTimeline="1" xflVersion="2.2" creatorInfo="Adobe Flash Professional CS6" platform="Windows" versionInfo="Saved by Adobe Flash Windows 12.0 build 481" majorVersion="12" buildNumber="481" rulerVisible="true" viewAngle3D="54.3152087073611" nextSceneIdentifier="9" playOptionsPlayLoop="false" playOptionsPlayPages="false" playOptionsPlayFrameActions="false" autoSaveEnabled="true" autoSaveHasPrompted="true">
      <folders>
           <DOMFolderItem name="drayton_template_slider.psd Assets" itemID="50f97c5c-000001d4" isExpanded="true"/>
           <DOMFolderItem name="drayton_template_slider.psd Assets/Assets" itemID="50f97c5c-000001d5" isExpanded="true"/>
@@ -6,12 +6,15 @@
           <DOMFolderItem name="drayton_template_slider.psd Assets/leftArrow/Assets" itemID="50f97c5c-000001f0"/>
           <DOMFolderItem name="drayton_template_slider.psd Assets/rightArrow" itemID="50f97c5c-000001db" isExpanded="true"/>
           <DOMFolderItem name="drayton_template_slider.psd Assets/rightArrow/Assets" itemID="50f97c5c-000001de"/>
+          <DOMFolderItem name="pfeile2.psd Assets" itemID="51019a21-000001eb" isExpanded="true"/>
+          <DOMFolderItem name="pfeile2.psd Assets/Assets" itemID="51019a21-000001ec"/>
      </folders>
      <media>
           <DOMBitmapItem name="drayton_template_slider.psd Assets/leftArrow/Assets/bg.png" itemID="50fbfc65-000001f0" sourceExternalFilepath="./LIBRARY/drayton_template_slider.psd Assets/leftArrow/Assets/bg" sourceLastImported="1358691361" externalFileSize="2932" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="90" href="drayton_template_slider.psd Assets/leftArrow/Assets/bg.png" bitmapDataHRef="M 6 1358527580.dat" frameRight="720" frameBottom="4380"/>
           <DOMBitmapItem name="drayton_template_slider.psd Assets/rightArrow/Assets/bg-1.png" itemID="50fbfc65-000001f1" sourceExternalFilepath="./LIBRARY/drayton_template_slider.psd Assets/rightArrow/Assets/bg" sourceLastImported="1358691396" externalFileSize="2900" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="90" href="drayton_template_slider.psd Assets/rightArrow/Assets/bg-1.png" bitmapDataHRef="M 2 1358527580.dat" frameRight="600" frameBottom="4400"/>
           <DOMBitmapItem name="Bitmap 10.png" itemID="51003303-000001f8" sourceExternalFilepath="./LIBRARY/Bitmap 10.png" sourceLastImported="1358967278" externalFileSize="2872" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="50" href="Bitmap 10.png" bitmapDataHRef="M 10 1358967232.dat" frameRight="200" frameBottom="200"/>
           <DOMBitmapItem name="drayton_template_slider.psd Assets/Assets/Ebene 1" itemID="50f97c5c-000001da" sourceExternalFilepath="./LIBRARY/drayton_template_slider.psd Assets/Assets/Ebene 1" sourceLastImported="1358527580" originalCompressionType="lossless" quality="90" href="drayton_template_slider.psd Assets/Assets/Ebene 1" bitmapDataHRef="M 1 1358527580.dat" frameRight="10820" frameBottom="4400"/>
+          <DOMBitmapItem name="pfeile2.psd Assets/Assets/Ebene 4 Kopie.png" itemID="51019a4e-000001fc" sourceLastImported="1359059534" useImportedJPEGData="false" compressionType="lossless" originalCompressionType="lossless" quality="90" href="pfeile2.psd Assets/Assets/Ebene 4 Kopie.png" bitmapDataHRef="M 11 1359059489.dat" frameRight="300" frameBottom="500"/>
           <DOMBitmapItem name="drayton_template_slider.psd Assets/rightArrow/Ellipse 1" itemID="50f97c5c-000001e6" sourceExternalFilepath="./LIBRARY/drayton_template_slider.psd Assets/rightArrow/Ellipse 1" sourceLastImported="1358527580" originalCompressionType="lossless" quality="90" href="drayton_template_slider.psd Assets/rightArrow/Ellipse 1" bitmapDataHRef="M 3 1358527580.dat" frameLeft="-115200" frameTop="-115200" frameRight="-115200" frameBottom="-115200"/>
           <DOMBitmapItem name="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie" itemID="50f97c5c-000001e9" sourceExternalFilepath="./LIBRARY/drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie" sourceLastImported="1358527580" originalCompressionType="lossless" quality="90" href="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie" bitmapDataHRef="M 4 1358527580.dat" frameLeft="-115200" frameTop="-115200" frameRight="-115200" frameBottom="-115200"/>
           <DOMBitmapItem name="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2" itemID="50f97c5c-000001ec" sourceExternalFilepath="./LIBRARY/drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2" sourceLastImported="1358527580" originalCompressionType="lossless" quality="90" href="drayton_template_slider.psd Assets/rightArrow/Ellipse 1 Kopie 2" bitmapDataHRef="M 5 1358527580.dat" frameRight="120" frameBottom="120"/>
@@ -22,9 +25,10 @@
      <symbols>
           <Include href="drayton_template_slider.psd Assets/imagesContainer.xml" itemID="50fbfad2-000001e8" lastModified="1358691311"/>
           <Include href="drayton_template_slider.psd Assets/leftArrow/bg.xml" loadImmediate="false" itemID="50f97c5c-000001f2" lastModified="1358691345"/>
-          <Include href="drayton_template_slider.psd Assets/leftArrow/leftArrow.xml" itemID="50f97c5c-000001ef" lastModified="1358967541"/>
+          <Include href="drayton_template_slider.psd Assets/leftArrow/leftArrow.xml" itemID="50f97c5c-000001ef" lastModified="1359059835"/>
           <Include href="drayton_template_slider.psd Assets/rightArrow/bg.xml" loadImmediate="false" itemID="50f97c5c-000001e0" lastModified="1358691371"/>
-          <Include href="drayton_template_slider.psd Assets/rightArrow/rightArrow.xml" itemID="50f97c5c-000001dd" lastModified="1358967464"/>
+          <Include href="drayton_template_slider.psd Assets/rightArrow/rightArrow.xml" itemID="50f97c5c-000001dd" lastModified="1359059944"/>
+          <Include href="Ebene 4 Kopie.xml" loadImmediate="false" itemID="51019a21-000001ee" lastModified="1359059534"/>
           <Include href="SlideMaxViewBase.xml" itemID="50f97d7e-00000202" lastModified="1358967496"/>
           <Include href="Symbol 1.xml" loadImmediate="false" itemID="50fc0f58-000004ae" lastModified="1358696280"/>
           <Include href="Symbol 2.xml" loadImmediate="false" itemID="50fc0f6d-000004b5" lastModified="1358696302"/>
@@ -71,6 +75,9 @@
      </timelines>
      <PrinterSettings/>
      <publishHistory>
+          <PublishItem publishSize="31001" publishTime="1359059849"/>
+          <PublishItem publishSize="29644" publishTime="1359059841"/>
+          <PublishItem publishSize="31004" publishTime="1359059715"/>
           <PublishItem publishSize="29458" publishTime="1358696308"/>
           <PublishItem publishSize="29462" publishTime="1358696260"/>
           <PublishItem publishSize="30814" publishTime="1358696209"/>

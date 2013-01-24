@@ -1,4 +1,4 @@
-<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/rightArrow" itemID="50f97c5c-000001dd" linkageExportForAS="true" linkageClassName="RightArrow" lastModified="1358967464">
+<DOMSymbolItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://ns.adobe.com/xfl/2008/" name="drayton_template_slider.psd Assets/rightArrow/rightArrow" itemID="50f97c5c-000001dd" linkageExportForAS="true" linkageClassName="RightArrow" lastModified="1359059944" lastUniqueIdentifier="1">
   <timeline>
     <DOMTimeline name="rightArrow" guides='&lt;guidelines&gt;&lt;guideline direction="h"&gt;110&lt;/guideline&gt;&lt;guideline direction="v"&gt;5&lt;/guideline&gt;&lt;/guidelines&gt;'>
       <layers>
@@ -12,13 +12,7 @@
         <DOMLayer name="Ellipse 1 Kopie" color="#FF4FFF" autoNamed="false">
           <frames>
             <DOMFrame index="0" keyMode="9728">
-              <elements>
-                <DOMBitmapInstance libraryItemName="Bitmap 10.png">
-                  <matrix>
-                    <Matrix a="-1" d="-1" tx="13" ty="115"/>
-                  </matrix>
-                </DOMBitmapInstance>
-              </elements>
+              <elements/>
             </DOMFrame>
           </frames>
         </DOMLayer>
@@ -33,16 +27,24 @@
           <frames>
             <DOMFrame index="0" keyMode="9728">
               <elements>
-                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/bg" name="backGround" centerPoint3DX="7.5" centerPoint3DY="110">
+                <DOMSymbolInstance libraryItemName="drayton_template_slider.psd Assets/rightArrow/bg" name="backGround" centerPoint3DX="4" centerPoint3DY="110">
                   <matrix>
-                    <Matrix a="0.5"/>
+                    <Matrix a="0.666671752929688" tx="-6"/>
                   </matrix>
                   <transformationPoint>
                     <Point x="15" y="110"/>
                   </transformationPoint>
                   <color>
-                    <Color alphaMultiplier="0.5"/>
+                    <Color alphaMultiplier="0"/>
                   </color>
+                </DOMSymbolInstance>
+                <DOMSymbolInstance libraryItemName="Ebene 4 Kopie" name="arrow" centerPoint3DX="4.5" centerPoint3DY="112.5">
+                  <matrix>
+                    <Matrix tx="-3" ty="100"/>
+                  </matrix>
+                  <transformationPoint>
+                    <Point x="7.5" y="12.5"/>
+                  </transformationPoint>
                 </DOMSymbolInstance>
               </elements>
             </DOMFrame>

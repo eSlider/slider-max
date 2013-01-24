@@ -51,7 +51,7 @@ package
 	
 	import gs.TweenLite;
 	
-	[SWF(width='542', height='220', frameRate='60', backgroundColor="0xFFFFFF")]
+	[SWF(width='542', height='220', frameRate='60', backgroundColor="0xC0C0C0")]
 	public class SliderMax extends Sprite
 	{
 		private var view:SlideMaxViewBase;
@@ -83,7 +83,6 @@ package
 		
 		protected function handleMouse(event:Event):void
 		{
-			VisApp.debug(event.type);
 			switch(event.type){
 				case MouseEvent.MOUSE_OVER:
 					gallery.stop();
@@ -111,8 +110,8 @@ package
 			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
 			arrow.addEventListener(MouseEvent.CLICK,onClick);
 			
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			backGround.alpha = 0;
+			var backGround:MovieClip = arrow.getChildByName("arrow") as MovieClip;
+			backGround.alpha = 0.5;
 		}
 		
 		protected function onClick(event:MouseEvent):void
@@ -128,15 +127,15 @@ package
 		protected function onArrowMouseOver(event:MouseEvent):void
 		{
 			var arrow:MovieClip = event.target as MovieClip;
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			TweenLite.to(backGround, 1, {alpha:0.5});
+			var backGround:MovieClip = arrow.getChildByName("arrow") as MovieClip;
+			TweenLite.to(backGround, 1, {alpha:1});
 		}
 		
 		protected function onArrowMouseOut(event:MouseEvent):void
 		{
 			var arrow:MovieClip = event.target as MovieClip;
-			var backGround:MovieClip = arrow.getChildByName("backGround") as MovieClip;
-			TweenLite.to(backGround, 1, {alpha:0});
+			var backGround:MovieClip = arrow.getChildByName("arrow") as MovieClip;
+			TweenLite.to(backGround, 1, {alpha:0.5});
 		}
 	}
 }
