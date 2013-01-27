@@ -74,7 +74,7 @@ package de.viscreation.views
 		{
 			if(!timer){
 				timer = new Timer(_swapTime*1000);
-				timer.addEventListener(TimerEvent.TIMER,showNext);
+				timer.addEventListener(TimerEvent.TIMER,showPrev);
 			}
 			
 			currentImage = images[0] as GalleryImage;

@@ -39,12 +39,14 @@ package
 	import de.viscreation.views.GalleryImage;
 	import de.viscreation.views.SliderMaxGallery;
 	
+	import flash.display.BlendMode;
 	import flash.display.DisplayObject;
 	import flash.display.MovieClip;
 	import flash.display.Sprite;
 	import flash.events.Event;
 	import flash.events.MouseEvent;
 	import flash.external.ExternalInterface;
+	import flash.filters.DropShadowFilter;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
 	import flash.system.Security;
@@ -110,8 +112,10 @@ package
 			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
 			arrow.addEventListener(MouseEvent.CLICK,onClick);
 			
-			var backGround:MovieClip = arrow.getChildByName("arrow") as MovieClip;
-			backGround.alpha = 0.5;
+			var arrow:MovieClip = arrow.getChildByName("arrow") as MovieClip;
+			arrow.blendMode = BlendMode.DIFFERENCE;
+			arrow.filters = [new DropShadowFilter(0,45,0,1,4,4,1,1)];
+			arrow.alpha = 0.5;
 		}
 		
 		protected function onClick(event:MouseEvent):void
