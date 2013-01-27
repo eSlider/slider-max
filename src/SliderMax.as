@@ -113,7 +113,6 @@ package
 			arrow.addEventListener(MouseEvent.CLICK,onClick);
 			
 			var arrow:MovieClip = arrow.getChildByName("arrow") as MovieClip;
-			arrow.blendMode = BlendMode.DIFFERENCE;
 			arrow.filters = [new DropShadowFilter(0,45,0,1,4,4,1,1)];
 			arrow.alpha = 0.5;
 		}
