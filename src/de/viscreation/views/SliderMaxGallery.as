@@ -54,7 +54,7 @@ package de.viscreation.views
 		private var imagesReady:int;
 		private var currentImage:GalleryImage;
 		private var lastImage:GalleryImage;
-		private var _swapTime:Number;
+		private var _swapTime:Number = 4;
 		
 		public static const IMAGES_LOADED:String = "imagesLoaded"; // if all images ready
 		private var buttonsEnabled:Boolean;
@@ -63,9 +63,8 @@ package de.viscreation.views
 
 		
 		[Event(name="ready", type="flash.events.Event")]
-		public function SliderMaxGallery(imagesXmlUrl:String, swapTime:Number = 2)
+		public function SliderMaxGallery(imagesXmlUrl:String )
 		{
-			_swapTime = swapTime;
 			load(imagesXmlUrl);
 			addEventListener(SliderMaxGallery.IMAGES_LOADED, play);
 		}
@@ -124,10 +123,10 @@ package de.viscreation.views
 			buttonsEnabled = false;
 			lastImage = currentImage;
 			currentImage = getNextImage();
-			currentImage.x = stage.stageWidth;
+			currentImage.x = 542;
 			
 			addChild(currentImage);
-			TweenMax.to(lastImage, animateTime, {x:-stage.stageWidth,onComplete:function():void{
+			TweenMax.to(lastImage, animateTime, {x:-542,onComplete:function():void{
 				timer.start();
 				buttonsEnabled = true;
 			}});
@@ -197,6 +196,9 @@ package de.viscreation.views
 			var data:XML = new XML(e.target.data);
 			var image:GalleryImage;
 			var src:Object;
+			if(data.hasOwnProperty("@animationDelay")){
+				_swapTime = parseFloat(data.@animationDelay);
+			}
 			
 			for each ( var imageXml:XML in data.image as XMLList){
 				image = new GalleryImage(imageXml);
@@ -205,6 +207,8 @@ package de.viscreation.views
 				images.push(image);
 				addChild(image);
 			}
+			
+	
 		}
 		
 		protected function onImageReady(event:Event):void

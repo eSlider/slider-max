@@ -67,10 +67,21 @@ package
 			Security.allowInsecureDomain("*");
 			//Security.sandboxType  = Security.LOCAL_WITH_NETWORK
 			
-			gallery = new SliderMaxGallery(
-				"images.xml",	// XML URL
-				4				// swap interval
-			);
+			var galleryImagesUrl:String = "images.xml";
+			
+			if( loaderInfo.parameters.hasOwnProperty("imagesUrl") ) {
+				galleryImagesUrl = loaderInfo.parameters["imagesUrl"];
+			}
+			
+			
+			var spriteMask:Sprite = new Sprite;
+			spriteMask.graphics.beginFill(0xFFFFFF);
+			spriteMask.graphics.drawRect(0,0,542,220);
+			spriteMask.graphics.endFill();
+			mask = spriteMask;
+			
+			
+			gallery = new SliderMaxGallery(galleryImagesUrl);
 			
 			addChild(view = new SlideMaxViewBase);
 			view.removeChild(view.getChildAt(0));

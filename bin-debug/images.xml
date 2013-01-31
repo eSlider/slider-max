@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<images>
+<?xml version="1.0" encoding="UTF-8"?> 
+<!-- 
+	@animationDelay 4.6
+ -->
+<images animationDelay="4">
 	<image src="assets/1.jpg" link="http://www.google.de"/>
 	<image src="assets/2.jpg" />
 	<image src="assets/trv4_eng2.swf"/>
