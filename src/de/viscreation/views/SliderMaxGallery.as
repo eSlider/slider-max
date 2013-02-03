@@ -50,7 +50,7 @@ package de.viscreation.views
 	public class SliderMaxGallery extends Sprite
 	{
 		private var xmlLoader:URLLoader;
-		private var images:Array;
+		private var _images:Array;
 		private var imagesReady:int;
 		private var currentImage:GalleryImage;
 		private var lastImage:GalleryImage;
@@ -60,13 +60,27 @@ package de.viscreation.views
 		private var buttonsEnabled:Boolean;
 		private var timer:Timer;
 		private var animateTime:Number = 1;
+		private var _width:Number;
+		private var _height:Number;
 
 		
 		[Event(name="ready", type="flash.events.Event")]
 		public function SliderMaxGallery(imagesXmlUrl:String )
 		{
 			load(imagesXmlUrl);
-			addEventListener(SliderMaxGallery.IMAGES_LOADED, play);
+			//addEventListener(SliderMaxGallery.IMAGES_LOADED, play);
+		}
+		
+		public function get images():Array
+		{
+			return _images;
+		}
+
+		override public function set width( w:Number ):void{
+			_width = w;
+		}
+		public override function set height( h:Number ):void{
+			_height = h;
 		}
 		
 		public function play(event:Event = null):void
@@ -77,7 +91,7 @@ package de.viscreation.views
 			}
 			
 			currentImage = images[0] as GalleryImage;
-			
+			currentImage.visible = true;
 			addChild(currentImage);
 			buttonsEnabled = true;
 			timer.start();
@@ -85,15 +99,17 @@ package de.viscreation.views
 		
 		public function start():void
 		{	
-			timer.reset();
-			timer.start();
-			VisApp.debug("start");
+			if(timer != null && !timer.running){
+				timer.reset();
+				timer.start();
+			}
 		}
 		
 		public function stop():void
 		{
-			timer.stop();
-			VisApp.debug("stop");
+			if(timer != null && timer.running){
+				timer.stop();
+			}
 		}
 		
 		public function showPrev(event:Event = null):void
@@ -105,11 +121,13 @@ package de.viscreation.views
 			buttonsEnabled = false;
 			lastImage = currentImage;
 			currentImage = getPrevImage();
-			currentImage.x = -currentImage.width;
+			currentImage.x = -_width;
+			currentImage.visible = true,
 			addChild(currentImage);
-			TweenMax.to(lastImage, animateTime, {x:lastImage.width,onComplete:function():void{
+			TweenMax.to(lastImage, animateTime, {x:_width,  onComplete:function():void{
 				timer.start();
 				buttonsEnabled = true;
+				lastImage.visible = false;
 			}});
 			TweenMax.to(currentImage, animateTime, {x:0});
 		}
@@ -123,12 +141,13 @@ package de.viscreation.views
 			buttonsEnabled = false;
 			lastImage = currentImage;
 			currentImage = getNextImage();
-			currentImage.x = 542;
-			
+			currentImage.x = _width;
+			currentImage.visible = true;
 			addChild(currentImage);
-			TweenMax.to(lastImage, animateTime, {x:-542,onComplete:function():void{
+			TweenMax.to(lastImage, animateTime, {x:-_width,onComplete:function():void{
 				timer.start();
 				buttonsEnabled = true;
+				lastImage.visible = false;
 			}});
 			TweenMax.to(currentImage, animateTime, {x:0});
 		}
@@ -138,14 +157,14 @@ package de.viscreation.views
 			var foundedImage:GalleryImage;
 			var image:GalleryImage
 			
-			for (var i:int = images.length-1; i >= 0 ; i--) 
+			for (var i:int = _images.length-1; i >= 0 ; i--) 
 			{
-				image = images[i] as GalleryImage;
+				image = _images[i] as GalleryImage;
 				if(image == currentImage){
 					if(i > 0){
-						foundedImage = images[i-1] as GalleryImage;
+						foundedImage = _images[i-1] as GalleryImage;
 					}else{
-						foundedImage = images[images.length-1] as GalleryImage;
+						foundedImage = _images[_images.length-1] as GalleryImage;
 					}
 					break;
 				}
@@ -156,13 +175,13 @@ package de.viscreation.views
 		private function getNextImage():GalleryImage
 		{
 			var foundedImage:GalleryImage = currentImage;
-			for (var i:int = 0; i < images.length ; i++) 
+			for (var i:int = 0; i < _images.length ; i++) 
 			{
-				if(images[i] as GalleryImage == currentImage){
-					if(i == images.length-1){
-						foundedImage = images[0] as GalleryImage;
+				if(_images[i] as GalleryImage == currentImage){
+					if(i == _images.length-1){
+						foundedImage = _images[0] as GalleryImage;
 					}else{
-						foundedImage = images[i+1] as GalleryImage;
+						foundedImage = _images[i+1] as GalleryImage;
 					}
 					break;
 				}
@@ -182,7 +201,7 @@ package de.viscreation.views
 		
 		private function load(xmlUrl:String):void
 		{
-			images = new Array;
+			_images = new Array;
 			xmlLoader = new URLLoader();
 			xmlLoader.addEventListener(Event.COMPLETE, onXmlLoadComplete);
 			xmlLoader.load(new URLRequest(xmlUrl));
@@ -196,6 +215,7 @@ package de.viscreation.views
 			var data:XML = new XML(e.target.data);
 			var image:GalleryImage;
 			var src:Object;
+			
 			if(data.hasOwnProperty("@animationDelay")){
 				_swapTime = parseFloat(data.@animationDelay);
 			}
@@ -204,11 +224,10 @@ package de.viscreation.views
 				image = new GalleryImage(imageXml);
 				image.addEventListener(GalleryImage.READY,onImageReady);
 				image.addEventListener(GalleryImage.VISIBLE,onImageShowed);
-				images.push(image);
+				_images.push(image);
+				image.visible = false;
 				addChild(image);
 			}
-			
-	
 		}
 		
 		protected function onImageReady(event:Event):void

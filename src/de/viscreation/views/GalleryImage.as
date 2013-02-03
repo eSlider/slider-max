@@ -73,7 +73,7 @@ package de.viscreation.views
 			link = String(data.@link);
 			load(src);
 			
-			cacheAsBitmap = true;
+			//cacheAsBitmap = true;
 			
 			if(link != ""){
 				buttonMode = true;

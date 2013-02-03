@@ -53,12 +53,12 @@ package
 	
 	import gs.TweenLite;
 	
-	[SWF(width='542', height='220', frameRate='60', backgroundColor="0xC0C0C0")]
+	[SWF(width='542', height='220', frameRate='60', backgroundColor="0x000000")]
 	public class SliderMax extends Sprite
 	{
 		private var view:SlideMaxViewBase;
 		private var gallery:SliderMaxGallery;
-		// test
+
 		public function SliderMax()
 		{
 			stage.align = "TL";
@@ -74,13 +74,6 @@ package
 			}
 			
 			
-			var spriteMask:Sprite = new Sprite;
-			spriteMask.graphics.beginFill(0xFFFFFF);
-			spriteMask.graphics.drawRect(0,0,542,220);
-			spriteMask.graphics.endFill();
-			mask = spriteMask;
-			
-			
 			gallery = new SliderMaxGallery(galleryImagesUrl);
 			
 			addChild(view = new SlideMaxViewBase);
@@ -92,6 +85,29 @@ package
 			stage.addEventListener(Event.MOUSE_LEAVE, handleMouse);
 			stage.addEventListener(MouseEvent.MOUSE_OVER, handleMouse);
 			stage.addEventListener(MouseEvent.MOUSE_OUT, handleMouse);
+			
+			stage.addEventListener(Event.RESIZE,resize);
+			resize();
+		}
+		
+		protected function resize(event:Event = null):void
+		{
+			var w:Number = stage.stageWidth;
+			var h:Number = stage.stageHeight;
+			
+			with(view.rightArrow){
+				x = w - width;
+				arrow.y = Math.round((h-arrow.height)/2);
+				backGround.height = h;
+			}
+			
+			with(view.leftArrow){
+				arrow.y = Math.round((h+arrow.height)/2);
+				backGround.height = h;
+			}
+			
+			gallery.width = w;
+			gallery.height = h;
 		}
 		
 		protected function handleMouse(event:Event):void
@@ -109,23 +125,30 @@ package
 		
 		protected function initialize(event:Event):void
 		{
+			if(gallery.images.length < 2 ){
+				view.leftArrow.visible = false;
+				view.rightArrow.visible = false;
+			}else{
+				gallery.play();
+				setupArrow(view.leftArrow);
+				setupArrow(view.rightArrow);
+			}
 			visible = true;
-			
-			setupArrow(view.leftArrow);
-			setupArrow(view.rightArrow);
 		}
 		
-		private function setupArrow(arrow:MovieClip):void
+		private function setupArrow(button:MovieClip):void
 		{
-			arrow.buttonMode = true;
-			arrow.mouseChildren = false;
-			arrow.addEventListener(MouseEvent.MOUSE_OVER,onArrowMouseOver);
-			arrow.addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
-			arrow.addEventListener(MouseEvent.CLICK,onClick);
-			
-			var arrow:MovieClip = arrow.getChildByName("arrow") as MovieClip;
-			arrow.filters = [new DropShadowFilter(0,45,0,1,4,4,1,1)];
-			arrow.alpha = 0.5;
+			with(button){
+				buttonMode = true;
+				mouseChildren = false;
+				addEventListener(MouseEvent.MOUSE_OVER,onArrowMouseOver);
+				addEventListener(MouseEvent.MOUSE_OUT,onArrowMouseOut);
+				addEventListener(MouseEvent.CLICK,onClick);
+				
+				var arrow:MovieClip = getChildByName("arrow") as MovieClip;
+				arrow.filters = [new DropShadowFilter(0,45,0,1,4,4,1,1)];
+				arrow.alpha = 0.5;
+			}
 		}
 		
 		protected function onClick(event:MouseEvent):void
