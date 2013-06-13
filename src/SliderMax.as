@@ -31,7 +31,7 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  * @author <Andriy Oblivantsev> eslider@gmail.com
- * 
+ * мой комментарий
  */
 package
 {
