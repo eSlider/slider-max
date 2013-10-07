@@ -36,15 +36,10 @@
 package de.viscreation
 {
 	import com.adobe.serialization.json.JSON;
-	
 	import flash.external.ExternalInterface;
 
 	public class VisApp
 	{
-		public function VisApp()
-		{
-		}
-		
 		public static function debug(o:Object):void{
 			if(ExternalInterface.available){
 				ExternalInterface.call("window.console.warn",JSON.encode(o));
